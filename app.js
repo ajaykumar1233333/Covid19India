@@ -124,16 +124,16 @@ app.put("/districts/:districtId/", async (request, response) => {
         UPDATE
           district
         SET
-        district_name = '${districtName}'
+        district_name = '${districtName}',
         state_id = ${stateId},
         cases = ${cases},
         cured = ${cured},
         active = ${active},
-        deaths = ${deaths};
+        deaths = ${deaths}
         WHERE 
         district_id = ${districtId};`;
 
-  await database.run(updateDistrictQuery);
+  await db.run(updateDistrictQuery);
   response.send("Movie Details Updated");
 });
 
